@@ -1,5 +1,4 @@
 
-" base {{{
 
 "Encode {{{
 set encoding=UTF-8
@@ -8,7 +7,8 @@ set termencoding=UTF-8
 scriptencoding=UTF-8
 " }}}
 
-"File {{{
+"File, Buffer {{{
+syntax on
 set nobomb
 set hidden       "ファイル変更中でも他のファイルを開けるようにする
 set nobackup     "バックアップは作成しない。スワップは作成する。
@@ -107,4 +107,3 @@ nnoremap # #zz
 set listchars=eol:¤,space:·,tab:¦¸
 " }}
 
-" }}}
