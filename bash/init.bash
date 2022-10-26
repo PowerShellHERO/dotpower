@@ -16,3 +16,8 @@ stty kill undef
 stty stop undef
 stty start undef
 
+# pacman alias
+# maybe should split.
+alias pac='sudo pacman -S --needed'
+alias pacs = 'pacman -Ss' # search remote
+alias pacq = 'pacman -Qs'
