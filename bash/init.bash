@@ -24,7 +24,7 @@ alias pacq = 'pacman -Qs'
 
 # eusuke
 export PAGER=less
-export EDITOR=vi
+export EDITOR=vim
 export LESS='-X -i -P ?f%f:(stdin).  ?lb%lb?L/%L..  [?eEOF:?pb%pb\%..]'
 
 complete -d cd
@@ -39,11 +39,13 @@ function prompt_cmd {
   local r=$?
   show_exit $r;
   add_chronicle $r;
-
 }
 
 function add_chronicle {
-  echo "`date '+%Y-%m-%d %H:%M:%S'` $HOSTNAME:$$ $PWD ($1) `history 1`" >> $BASH_CHRONICLE
+  if [[ $1 -eq 0 ]]; then
+  echo "`date '+%Y-%m-%d %H:%M:%S'` $HOSTNAME:$$ $PWD ($1) `history 1`" >> $BASH_CHRONICLE;
+
+
 }
 
 function show_exit {
@@ -51,5 +53,5 @@ function show_exit {
   echo -e "\007exit $1"
 }
 
-function i { if [ "$1" ]; then grep "$1" $; else tail -30 $MYHISTFILE; fi }
+function i { if [ "$1" ]; then grep "$1" $BASH_CHRONICLE ; else tail -30 $BASH_CHRONICLE; fi }
 

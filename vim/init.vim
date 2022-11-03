@@ -9,6 +9,7 @@ scriptencoding=UTF-8
 
 "File, Buffer {{{
 syntax on
+set number
 set nobomb
 set hidden       "ファイル変更中でも他のファイルを開けるようにする
 set nobackup     "バックアップは作成しない。スワップは作成する。
