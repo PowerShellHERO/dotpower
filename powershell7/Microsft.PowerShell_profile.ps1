@@ -292,3 +292,35 @@ function ovu
 # 	$name = "$Year" + "Diary.md"
 #     vi "$folder/$name" -c ':normal call Myvim_Timestamp()
 # }
+#
+#
+
+# (2022/11/16)
+# git 用
+
+function ga ()
+{
+    git add .
+    git status
+}
+
+Remove-Alias gm -Force  # 結構つかうから，あんまり消したくないけど。
+Remove-Alias gl -Force  # gl = pwd
+function gm ($str)
+{
+    if ($str -eq $null){
+        git commit
+    }else{
+        git commit -m $str
+    }
+    git stage
+}
+
+function gl ($opt)
+{
+    if ($opt -eq 'n'){
+        git log --name-status --date=format:'%Y-%m-%d %H:%M' --pretty=format:"%C(cyan)%cd %Cgreen[%cr]`n  %s`n"
+    }else{
+        git log --date=format:'%Y-%m-%d %H:%M' --pretty=format:"%C(cyan)%cd %Cgreen[%cr]`n  %s`n"
+    }
+}
